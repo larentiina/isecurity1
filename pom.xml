@@ -156,6 +156,7 @@
                 </executions>
                 <configuration>
                     <failBuildOnCVSS>7</failBuildOnCVSS>
+                    <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
                 </configuration>
             </plugin>
         </plugins>
