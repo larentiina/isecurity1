@@ -84,6 +84,7 @@
 ## Как запускать
 
 ```bash
-git clone <URL_репозитория>
-mvn spring-boot:run
+git clone https://github.com/larentiina/isecurity1.git
+.\mvnw spring-boot:run
 ```
+
