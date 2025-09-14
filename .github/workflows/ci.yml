@@ -24,7 +24,7 @@ jobs:
         run: mvn clean package -DskipTests
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
@@ -34,4 +34,5 @@ jobs:
 
       - name: Run OWASP Dependency-Check (SCA)
         run: mvn org.owasp:dependency-check-maven:8.4.0:check
+
 
