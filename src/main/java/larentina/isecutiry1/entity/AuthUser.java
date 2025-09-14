@@ -1,30 +1,30 @@
 package larentina.isecutiry1.entity;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Data
-public class User {
-    @Entity
-    @Table(name = "users")
-    public class User {
-        @Id @GeneratedValue
-        private Long id;
+@Entity
+@Table(name = "auth_users")
+@NoArgsConstructor
+@Builder
+@AllArgsConstructor
+public class AuthUser {
 
-        @Column(unique = true, nullable = false)
-        private String username;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-        @Column(nullable = false)
-        private String passwordHash;
+    @Column(unique = true, nullable = false)
+    private String username;
 
-        @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
-        private List<Post> posts = new ArrayList<>();
+    @Column(nullable = false)
+    private String passwordHash;
 
-        public User() {}
+    @OneToOne(mappedBy = "authUser", cascade = CascadeType.ALL)
+    private Profile profile;
 
-        public User(Long id, String username, String passwordHash) {
-            this.id = id;
-            this.username = username;
-            this.passwordHash = passwordHash;
-        }
-
-        // getters/setters
-    }
 }
