@@ -33,7 +33,8 @@ jobs:
         run: mvn spotbugs:check
 
       - name: Run OWASP Dependency-Check (SCA)
-        run: mvn org.owasp:dependency-check-maven:8.4.0:check
+        run: mvn dependency-check:check 
+
 
 
 
