@@ -91,5 +91,7 @@ git clone https://github.com/larentiina/isecurity1.git
 ```
 ## CI/CD
 ci/cd настроен в [файле](https://github.com/larentiina/isecurity1/blob/master/.github/workflows/ci.yml)
+
 [ссылка](https://github.com/larentiina/isecurity1/actions/runs/17716903024/job/50343059380) на успешно пройденный пайплайн
+
 
