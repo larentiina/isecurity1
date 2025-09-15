@@ -45,9 +45,11 @@
 ```
 ### 3. Получение данных профиля
 **URL:** `GET /api/data?username=test`
-**Ответ:** JWT-токен
+**Ответ:** 
 ```json
-"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaWF0IjoxNzU3ODc3NTE5LCJleHAiOjE3NTc5NjM5MTl9.zl-8mupkjnmRoE_9ALAOWjlxc8jkYfRtI09ROZGC62I"
+[
+"example post"
+]
 ```
 **Описание:** Регистрирует нового пользователя и создаёт для него профиль.
 
@@ -87,4 +89,7 @@
 git clone https://github.com/larentiina/isecurity1.git
 .\mvnw spring-boot:run
 ```
+## CI/CD
+ci/cd настроен в [файле](https://github.com/larentiina/isecurity1/blob/master/.github/workflows/ci.yml)
+[ссылка](https://github.com/larentiina/isecurity1/actions/runs/17716903024/job/50343059380) на успешно пройденный пайплайн
 
