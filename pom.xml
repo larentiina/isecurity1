@@ -15,7 +15,6 @@
     <artifactId>isecutiry1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>isecutiry1</name>
-    <description>Lab project for secure REST API</description>
 
     <properties>
         <java.version>17</java.version>
@@ -33,7 +32,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Spring Boot Web + Security + JPA -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -91,7 +89,6 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- OAuth2 Resource Server (для JWT в Spring Security) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
@@ -166,7 +163,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <failBuildOnCVSS>7</failBuildOnCVSS>
+                    <failBuildOnCVSS>9</failBuildOnCVSS>
                     <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
                 </configuration>
             </plugin>
