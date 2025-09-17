@@ -36,6 +36,13 @@ jobs:
         run: mvn dependency-check:check 
         env:
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+          
+      - name: Upload Dependency-Check report
+        uses: actions/upload-artifact@v3
+        with:
+          name: dependency-check-report
+          path: target/dependency-check-report.html
+
 
 
 
