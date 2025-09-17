@@ -94,4 +94,9 @@ ci/cd настроен в [файле](https://github.com/larentiina/isecurity1/
 
 [ссылка](https://github.com/larentiina/isecurity1/actions/runs/17716903024/job/50343059380) на успешно пройденный пайплайн
 
+Отчет SpotBugs:
+<img width="992" height="781" alt="image" src="https://github.com/user-attachments/assets/290b20a2-6d1d-484c-9e9e-d42385f65202" />
+
+
+
 
