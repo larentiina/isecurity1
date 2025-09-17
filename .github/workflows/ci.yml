@@ -32,6 +32,15 @@ jobs:
       - name: Run SpotBugs (SAST)
         run: mvn spotbugs:check
 
+      - name: Generate SpotBugs HTML report
+        run: mvn spotbugs:gui
+
+      - name: Upload SpotBugs report
+        uses: actions/upload-artifact@v3
+        with:
+          name: spotbugs-report
+          path: target/spotbugs.html
+
       - name: Run OWASP Dependency-Check (SCA)
         run: mvn dependency-check:check 
         env:
@@ -42,6 +51,7 @@ jobs:
         with:
           name: dependency-check-report
           path: target/dependency-check-report.html
+
 
 
 
