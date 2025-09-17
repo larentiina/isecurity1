@@ -2,6 +2,7 @@ package larentina.isecutiry1.service;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
@@ -12,10 +13,13 @@ import java.nio.charset.StandardCharsets;
 @Service
 public class JwtService {
 
-    private final SecretKey secretKey = Keys.hmacShaKeyFor(
-            "mySecretKey123456789012345678901234567890".getBytes(StandardCharsets.UTF_8)
-    );
+
+    private final SecretKey secretKey;
     private final long expirationMillis = 24 * 60 * 60 * 1000; // 1 день
+
+    public JwtService(@Value("${jwt.secret}") String secret) {
+        this.secretKey = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
+    }
 
     // Генерация JWT по username
     public String generateToken(String username) {
@@ -26,7 +30,7 @@ public class JwtService {
                 .subject(username)
                 .issuedAt(now)
                 .expiration(expiryDate)
-                .signWith(secretKey) // HS256 берётся автоматически из типа ключа
+                .signWith(secretKey)
                 .compact();
     }
 
