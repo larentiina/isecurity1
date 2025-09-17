@@ -1,6 +1,7 @@
 package larentina.isecutiry1.controller;
 
 import larentina.isecutiry1.dto.CreatePostDto;
+import larentina.isecutiry1.dto.PostDto;
 import larentina.isecutiry1.entity.Post;
 import larentina.isecutiry1.service.PostService;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class PostController {
     }
 
     @GetMapping("/data")
-    public ResponseEntity<List<Post>> getPosts(@RequestParam String username) {
+    public ResponseEntity<List<PostDto>> getPosts(@RequestParam String username) {
         return ResponseEntity.ok(postService.getPosts(username));
     }
 

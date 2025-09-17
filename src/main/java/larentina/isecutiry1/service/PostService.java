@@ -1,5 +1,6 @@
 package larentina.isecutiry1.service;
 
+import larentina.isecutiry1.dto.PostDto;
 import larentina.isecutiry1.entity.Post;
 import larentina.isecutiry1.entity.Profile;
 import larentina.isecutiry1.repository.PostRepository;
@@ -17,10 +18,13 @@ public class PostService {
     private final JwtService jwtService;
 
 
-    public List<Post> getPosts(String username) {
+    public List<PostDto> getPosts(String username) {
         Profile profile = profileRepo.findByAuthUserUsername(username)
                 .orElseThrow(() -> new RuntimeException("Profile not found"));
-        return postRepo.findByAuthor(profile);
+        return postRepo.findByAuthor(profile)
+                .stream()
+                .map(p -> new PostDto(p.getId(), p.getContent(), p.getAuthor().getFullName()))
+                .toList();
     }
 
     public Post createPost(String token, String content) {
